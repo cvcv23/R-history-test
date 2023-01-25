@@ -1,0 +1,1005 @@
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10)
+✖ Fix the following mappings: `x` and `y`
+Run `rlang::last_error()` to see where the error occurred.
+> # Create empty plot
+> plot <- ggplot()
+> 
+> # Loop through each dataframe in the list
+> for(i in 1:length(df_list)) {
++     # Assign variable and age to separate variables
++     df_list[[i]]$variable <- df_list[[i]][,2]
++     age <- as.numeric(df_list[[i]][,1])
++     age <- sort(age)
++     
++     # Get optimal span from rmse_list
++     opt_span <- rmse_list[[colnames(df_list[[i]])[2]]][2]
++     
++     # Fit LOESS model with optimal span
++     loess_model <- loess(variable ~ age, span = opt_span,data=df_list[[i]])
++     
++     # Add LOESS trajectory to plot
++     plot <- plot + geom_smooth(data = df_list[[i]], aes(x = age, y = variable), method = "loess", span = opt_span) 
++     ggtitle(colnames(df_list[[i]])[2])
++ }
+> 
+> # Display plot
+> print(plot)
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10)
+✖ Fix the following mappings: `x`
+Run `rlang::last_error()` to see where the error occurred.
+> # Create empty plot
+> plot <- ggplot()
+> 
+> # Loop through each dataframe in the list
+> for(i in 1:length(df_list)) {
++     # Assign variable and age to separate variables
++     df_list[[i]]$variable <- df_list[[i]][,2]
++     age <- as.numeric(df_list[[i]][,1])
++     age <- sort(age)
++     
++     # Get optimal span from rmse_list
++     opt_span <- rmse_list[[colnames(df_list[[i]])[2]]][2]
++     
++     # Add LOESS trajectory to plot
++     plot <- plot + geom_smooth(data = df_list[[i]], aes(x = age, y = variable), method = "loess", span = opt_span) 
++     ggtitle(colnames(df_list[[i]])[2])
++ }
+> 
+> # Display plot
+> print(plot)
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10)
+✖ Fix the following mappings: `x`
+Run `rlang::last_error()` to see where the error occurred.
+> # Create empty plot
+> plot <- ggplot()
+> 
+> # Loop through each dataframe in the list
+> for(i in 1:length(df_list)) {
++     # Get optimal span from rmse_list
++     opt_span <- rmse_list[[colnames(df_list[[i]])[2]]][2]
++     
++     # Add LOESS trajectory to plot
++     plot <- plot + geom_smooth(data = df_list[[i]], aes(x = age, y = variable), method = "loess", span = opt_span, color = colnames(df_list[[i]])[2]) +
++         ggtitle(paste("LOESS Trajectories for All Variables"))+
++         xlab("Age")+
++         ylab("Z score")
++ }
+> 
+> # Display plot
+> print(plot)
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10)
+✖ Fix the following mappings: `x`
+Run `rlang::last_error()` to see where the error occurred.
+> # Loop through each dataframe in the list
+> for(i in 1:length(df_list)) {
++     # Get optimal span from rmse_list
++     opt_span <- rmse_list[[colnames(df_list[[i]])[2]]][2]
++     
++     # Create plot for current variable
++     plot <- ggplot(data = df_list[[i]], aes(x = age, y = variable)) +
++         geom_smooth(method = "loess", span = opt_span) +
++         ggtitle(paste("LOESS Trajectory for", colnames(df_list[[i]])[2]))+
++         xlab("Age")+
++         ylab("Variable Value")
++     
++     # Display plot
++     print(plot)
++ }
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10)
+✖ Fix the following mappings: `x`
+Run `rlang::last_error()` to see where the error occurred.
+> plot <- ggplot(data = df_list[[i]], aes(x = age, y = MMP9)) +
++              geom_smooth(method = "loess", span = opt_span) +
++              ggtitle(paste("LOESS Trajectory for", colnames(df_list[[i]])[2]))+
++              xlab("Age")+
++              ylab("Variable Value")
+>     
+>         # Display plot
+>          print(plot)
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10)
+✖ Fix the following mappings: `x`
+Run `rlang::last_error()` to see where the error occurred.
+> # Create empty plot
+> plot <- ggplot()
+> 
+> # Loop through each dataframe in the list
+> for(i in 1:length(df_list)) {
++     # Get optimal span from rmse_list
++     opt_span <- rmse_list[[colnames(df_list[[i]])[2]]][2]
++     
++     # Add LOESS trajectory for current variable to plot
++     plot <- plot + geom_smooth(data = df_list[[i]], aes(x = age, y = variable), method = "loess", span = opt_span, color = colnames(df_list[[i]])[2]) +
++         ggtitle(paste("LOESS Trajectories for All Variables"))+
++         xlab("Age")+
++         ylab("Variable Value")
++ }
+> 
+> # Display plot
+> print(plot)
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10)
+✖ Fix the following mappings: `x`
+Run `rlang::last_error()` to see where the error occurred.
+> rmse_list[["MMP9"]]
+[1] 3.228488e-16 4.000000e-01
+> g <- ggplot(df, aes(x = Age, y = MMP9)) + geom_smooth(span = 0.4)
+> g
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+Error in `geom_smooth()`:
+! Problem while computing stat.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Removed 50 rows containing non-finite values (`stat_smooth()`).
+Run `rlang::last_error()` to see where the error occurred.
+> g <- ggplot(df_list, aes(x = Age, y = MMP9)) + geom_smooth(span = 0.4)
+Error in `fortify()`:
+! `data` must be a <data.frame>, or an object coercible by `fortify()`, not a list.
+Run `rlang::last_error()` to see where the error occurred.
+> # Get optimal span from rmse_list
+> opt_span <- rmse_list[[colnames(df_list[[1]])[2]]][2]
+> 
+> # Create plot for first variable
+> plot <- ggplot(data = df_list[[1]], aes(x = age, y = variable)) +
++     geom_smooth(method = "loess", span = opt_span) +
++     ggtitle(paste("LOESS Trajectory for", colnames(df_list[[1]])[2]))+
++     xlab("Age")+
++     ylab("Variable Value")
+> 
+> # Display plot
+> print(plot)
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10)
+✖ Fix the following mappings: `x`
+Run `rlang::last_error()` to see where the error occurred.
+> library(readxl)
+> Plasma_Clean_8_clusters_avg <- read_excel("~/Documents/Plasma Clean 8 clusters avg.xlsx")
+> View(Plasma_Clean_8_clusters_avg)                                                                  
+> #First, we need to import the dataframe
+> dataframe <- Plasma_Clean_8_clusters_avg
+> 
+> #Next, we will create a function to find the span with the lowest RMSE for each variable
+> find_lowest_rmse <- function(variable){
++     min_rmse <- Inf
++     min_span <- NA
++     for (span in c(2,3,4,5,6,7,8,9,10)) {
++         rmse <- sqrt(mean((dataframe[,variable]-loess(dataframe[,variable],dataframe[,1],span=span)$fitted)^2))
++         if (rmse < min_rmse) {
++             min_rmse <- rmse
++             min_span <- span
++         }
++     }
++     return(c(min_rmse, min_span))
++ }
+> 
+> #We will create a loop to apply the function to each variable
+> for (i in 2:9) {
++     variable_name <- colnames(dataframe)[i]
++     lowest_rmse_info <- find_lowest_rmse(i)
++     print(paste0("For variable ", variable_name, ", the lowest RMSE is ", lowest_rmse_info[1], " with a span of ", lowest_rmse_info[2]))
++ }
+ Error in eval(predvars, data, env) : object 'Cluster 1' not found 
+> #First, we need to import the dataframe
+> dataframe <- read.csv("dataframe.csv")
+Error in file(file, "rt") : 
+  (converted from warning) cannot open file 'dataframe.csv': No such file or directory
+> #Next, we will create a function to find the span with the lowest RMSE for each variable
+>  find_lowest_rmse <- function(variable){
++          min_rmse <- Inf
++          min_span <- NA
++          for (span in c(2,3,4,5,6,7,8,9,10)) {
++                  rmse <- sqrt(mean((dataframe[,variable]-loess(dataframe[,variable],dataframe[,1],span=span)$fitted)^2))
++              if (rmse < min_rmse) {
++                         min_rmse <- rmse
++                      min_span <- span
++                      }
++              }
++          return(c(min_rmse, min_span))
++      }
+>  
+>      #We will create a loop to apply the function to each variable
+>      for (i in 2:9) {
++              variable_name <- colnames(dataframe)[i]
++              lowest_rmse_info <- find_lowest_rmse(i)
++              print(paste0("For variable ", variable_name, ", the lowest RMSE is ", lowest_rmse_info[1], " with a span of ", lowest_rmse_info[2]))}
+ Error in eval(predvars, data, env) : object 'Cluster 1' not found 
+> #First, we need to import the dataframe
+> dataframe <- Plasma_Clean_8_clusters_avg
+> 
+> #Next, we will create a function to find the span with the lowest RMSE for the first variable
+> find_lowest_rmse <- function(variable){
++     min_rmse <- Inf
++     min_span <- NA
++     for (span in c(2,3,4,5,6,7,8,9,10)) {
++         rmse <- sqrt(mean((dataframe[,variable]-loess(dataframe[,variable],dataframe[,1],span=span)$fitted)^2))
++         if (rmse < min_rmse) {
++             min_rmse <- rmse
++             min_span <- span
++         }
++     }
++     return(c(min_rmse, min_span))
++ }
+> 
+> lowest_rmse_info <- find_lowest_rmse(2)
+ Error in eval(predvars, data, env) : object 'Cluster 1' not found 
+> #First, we need to import the dataframe
+> dataframe <- Plasma_Clean_8_clusters_avg
+> 
+> #Next, we will create a function to find the span with the lowest RMSE for the first variable
+> find_lowest_rmse <- function(variable){
++     min_rmse <- Inf
++     min_span <- NA
++     for (span in c(2,3,4,5,6,7,8,9,10)) {
++         rmse <- sqrt(mean((dataframe[,variable]-loess(dataframe[,variable],dataframe[,1],span=span)$fitted)^2))
++         if (rmse < min_rmse) {
++             min_rmse <- rmse
++             min_span <- span
++         }
++     }
++     return(c(min_rmse, min_span))
++ }
+> 
+> lowest_rmse_info <- find_lowest_rmse(2)
+Error in eval(predvars, data, env) : object 'Cluster 1' not found
+Called from: eval(predvars, data, env)
+Browse[1]> print(paste0("For variable ", colnames(dataframe)[2], ", the lowest RMSE is ", lowest_rmse_info[1], " with a span of ", lowest_rmse_info[2]))
+Error during wrapup: object 'lowest_rmse_info' not found
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Browse[1]> 
+> str(Plasma_Clean_8_clusters_avg)
+tibble [60 × 9] (S3: tbl_df/tbl/data.frame)
+ $ Age      : num [1:60] 4.9 5.7 5.8 5.9 6 6.2 6.24 6.5 6.9 7 ...
+ $ Cluster 1: num [1:60] -0.844 0.124 2.882 0.135 -0.372 ...
+ $ Cluster 2: num [1:60] -0.323 -0.555 -0.425 -0.49 0.157 ...
+ $ Cluster 3: num [1:60] 0.0865 -0.5244 0.3557 -0.6651 -0.6586 ...
+ $ Cluster 4: num [1:60] 0.3009 0.0631 -0.1692 -0.5055 -0.7159 ...
+ $ Cluster 5: num [1:60] -0.133 -0.603 0.621 -0.438 -0.421 ...
+ $ Cluster 6: num [1:60] -0.5205 -0.2718 0.0222 0.6229 0.4792 ...
+ $ Cluster 7: num [1:60] 0.0427 -0.4318 -0.0891 -0.6059 -0.5287 ...
+ $ Cluster 8: num [1:60] -0.057 2.4757 0.0504 3.175 0.6362 ...
+> dataframe <- as.data.frame(Plasma_Clean_8_clusters_avg)
+> View(dataframe)
+> #First, we need to import the dataframe
+> 
+> 
+> #Next, we will create a function to find the span with the lowest RMSE for the first variable
+> find_lowest_rmse <- function(variable){
++     min_rmse <- Inf
++     min_span <- NA
++     for (span in c(2,3,4,5,6,7,8,9,10)) {
++         rmse <- sqrt(mean((dataframe[,variable]-loess(dataframe[,variable],dataframe[,1],span=span)$fitted)^2))
++         if (rmse < min_rmse) {
++             min_rmse <- rmse
++             min_span <- span
++         }
++     }
++     return(c(min_rmse, min_span))
++ }
+> 
+> lowest_rmse_info <- find_lowest_rmse(2)
+Error in formula.default(object, env = baseenv()) : invalid formula
+Called from: formula.default(object, env = baseenv())
+Browse[1]> print(paste0("For variable ", colnames(dataframe)[2], ", the lowest RMSE is ", lowest_rmse_info[1], " with a span of ", lowest_rmse_info[2]))
+Error during wrapup: object 'lowest_rmse_info' not found
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Browse[1]> 
+> #First, we need to import the dataframe
+> 
+> 
+> #Next, we will create a function to find the span with the lowest RMSE for the first variable
+> find_lowest_rmse <- function(variable){
++     min_rmse <- Inf
++     min_span <- NA
++     for (span in c(2,3,4,5,6,7,8,9,10)) {
++         rmse <- sqrt(mean((dataframe[,variable]-loess(dataframe[,variable],dataframe[,1],span=span)$fitted)^2))
++         if (rmse < min_rmse) {
++             min_rmse <- rmse
++             min_span <- span
++         }
++     }
++     return(c(min_rmse, min_span))
++ }
+> 
+> lowest_rmse_info <- find_lowest_rmse(2)
+Error in formula.default(object, env = baseenv()) : invalid formula
+Called from: formula.default(object, env = baseenv())
+Browse[1]> print(paste0("For variable ", colnames(dataframe)[2], ", the lowest RMSE is ", lowest_rmse_info[1], " with a span of ", lowest_rmse_info[2]))
+Error during wrapup: object 'lowest_rmse_info' not found
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Browse[1]> 
+> #First, we need to import the dataframe
+> dataframe <- read.csv("dataframe.csv")
+Error in file(file, "rt") : 
+  (converted from warning) cannot open file 'dataframe.csv': No such file or directory
+> #First, we need to import the dataframe
+> 
+> 
+> #Next, we will create a function to find the span with the lowest RMSE for the first variable
+> find_lowest_rmse <- function(variable){
++     min_rmse <- Inf
++     min_span <- NA
++     for (span in c(2,3,4,5,6,7,8,9,10)) {
++         rmse <- sqrt(mean((dataframe[,variable]-loess(dataframe[,variable],dataframe[,1],span=span)$fitted)^2))
++         if (rmse < min_rmse) {
++             min_rmse <- rmse
++             min_span <- span
++         }
++     }
++     return(c(min_rmse, min_span))
++ }
+> 
+> lowest_rmse_info <- find_lowest_rmse(2)
+Error in formula.default(object, env = baseenv()) : invalid formula
+Called from: formula.default(object, env = baseenv())
+Browse[1]> print(paste0("For variable ", colnames(dataframe)[2], , "the lowest RMSE is ", lowest_rmse_info[1], " with a span of ", lowest_rmse_info[2]))
+Error during wrapup: argument is missing, with no default
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Browse[1]> 
+> class(dataframe$`Cluster 1`)
+[1] "numeric"
+> # Assign dataframe to variable df
+> df <- dataframe
+> 
+> # Set a range of spans to test
+> spans <- seq(0.1, 1, by = 0.1)
+> 
+> # Initialize a vector to store the RMSE values
+> rmse_values <- c()
+> 
+> # Loop through the spans and calculate the RMSE for each
+> for (span in spans) {
++     # Fit the loess model
++     model <- loess(df[,2] ~ df[,1], span = span)
++     # Get the predicted values
++     predicted <- predict(model)
++     # Calculate the RMSE
++     rmse <- sqrt(mean((predicted - df[,2])^2))
++     # Append the RMSE to the vector
++     rmse_values <- c(rmse_values, rmse)
++ }
+> 
+> # Find the span with the lowest RMSE
+> best_span <- spans[which.min(rmse_values)]
+> 
+> # Fit the loess model with the best span
+> model <- loess(df[,2] ~ df[,1], span = best_span)
+> 
+> # Plot the model
+> plot(df[,1], df[,2], main = "Loess Plot", xlab = "Age", ylab = "Observation 1")
+> lines(predict(model), col = "red")
+> 
+> # Fit the loess model with the best span
+> model <- loess(df[,2] ~ df[,1], span = best_span)
+> 
+> # Plot the model using ggplot2
+> library(ggplot2)
+> ggplot(data = df, aes(x = df[,1], y = df[,2])) + 
++     geom_point() + 
++     geom_smooth(method = "loess", formula = y ~ x, span = best_span, se = FALSE, color = "red") + 
++     ggtitle("Loess Plot") + xlab("Age") + ylab("Observation 1")
+> 
+> # Fit the loess model with the best span
+> model <- loess(df[,2] ~ df[,1], span = 0.2)
+> 
+> # Plot the model using ggplot2
+> library(ggplot2)
+> ggplot(data = df, aes(x = df[,1], y = df[,2])) + 
++     geom_point() + 
++     geom_smooth(method = "loess", formula = y ~ x, span = 0.2, se = FALSE, color = "red") + 
++     ggtitle("Loess Plot") + xlab("Age") + ylab("Observation 1")
+> 
+> # Fit the loess model with the best span
+> model <- loess(df[,2] ~ df[,1], span = 0.5)
+> 
+> # Plot the model using ggplot2
+> library(ggplot2)
+> ggplot(data = df, aes(x = df[,1], y = df[,2])) + 
++     geom_point() + 
++     geom_smooth(method = "loess", formula = y ~ x, span = 0.5, se = FALSE, color = "red") + 
++     ggtitle("Loess Plot") + xlab("Age") + ylab("Observation 1")
+> 
+> # Fit the loess model with the best span
+> model <- loess(df[,2] ~ df[,1], span = best_span)
+> 
+> # Plot the model using ggplot2
+> library(ggplot2)
+> ggplot(data = df, aes(x = df[,1], y = df[,2])) + 
++     geom_point() + 
++     geom_smooth(method = "loess", formula = y ~ x, span = best_span, se = FALSE, color = "red") + 
++     ggtitle("Loess Plot") + xlab("Age") + ylab("Observation 1")
+> 
+> # Fit the gam model with the best method
+> model <- gam(df[,2] ~ s(df[,1]), method = "REML")
+Error in gam(df[, 2] ~ s(df[, 1]), method = "REML") : 
+  could not find function "gam"
+> # Fit the spline model with the best method
+> model <- smooth.spline(df[,1],df[,2])
+> 
+> # Plot the model using ggplot2
+> library(ggplot2)
+> ggplot(data = df, aes(x = df[,1], y = df[,2])) + 
++     geom_point() + 
++     geom_smooth(method = "spline", formula = y ~ x, se = FALSE, color = "red") + 
++     ggtitle("Spline Plot") + xlab("Age") + ylab("Observation 1")
+Error in `geom_smooth()`:
+! Problem while computing stat.
+ℹ Error occurred in the 2nd layer.
+Caused by error:
+! (converted from warning) Computation failed in `stat_smooth()`
+Caused by error in `method()`:
+! unused arguments (data = data, weights = weight)
+Run `rlang::last_error()` to see where the error occurred.
+> # Fit the loess model with the best span
+> model <- loess(df[,2] ~ df[,1], span = 0.7)
+> 
+> # Plot the model using ggplot2
+> library(ggplot2)
+> ggplot(data = df, aes(x = df[,1], y = df[,2])) + 
++     geom_point() + 
++     geom_smooth(method = "loess", formula = y ~ x, span = 0.7, se = FALSE, color = "red") + 
++     ggtitle("Loess Plot") + xlab("Age") + ylab("Observation 1")
+> 
+> # Assign dataframe to variable df
+> df <- dataframe
+> 
+> # Set a range of spans to test
+> spans <- seq(0.2, 0.9, by = 0.1)
+> 
+> # Initialize a vector to store the RMSE values
+> rmse_values <- c()
+> 
+> # Loop through the spans and calculate the RMSE for each
+> for (span in spans) {
++     # Fit the loess model
++     model <- loess(df[,2] ~ df[,1], span = span)
++     # Get the predicted values
++     predicted <- predict(model)
++     # Calculate the RMSE
++     rmse <- sqrt(mean((predicted - df[,2])^2))
++     # Append the RMSE to the vector
++     rmse_values <- c(rmse_values, rmse)
++ }
+> 
+> # Print the RMSE values for each span
+> rmse_values
+[1] 0.7037870 0.7555482 0.7897079 0.8101425 0.8228793 0.8309865 0.8341251 0.8384174
+> 
+> # Create a data frame with a range of ages
+> ages <- data.frame(age = seq(min(data$Age), max(data$Age), by = 1))
+Error in min(data$Age) : 
+  (converted from warning) no non-missing arguments to min; returning Inf
+> # Create a data frame with a range of ages
+> ages <- data.frame(age = seq(min(dataframe$Age), max(dataframe$Age), by = 1))
+> 
+> # Use the predict function to predict protein levels for the range of ages
+> predicted_protein <- predict(model, newdata = ages)
+Error: (converted from warning) 'newdata' had 22 rows but variables found have 60 rows
+> View(ages)
+> # Add the predicted protein levels to the ages data frame
+> ages$protein <- predicted_protein
+Error: object 'predicted_protein' not found
+> # Add the predicted protein levels to the ages data frame
+> ages$protein <- predicted_protein
+Error: object 'predicted_protein' not found
+> df <- Plasma_Clean_8_clusters_avg
+> library(forecast)
+Error in library(forecast) : there is no package called ‘forecast’
+> install.packages("forecast")
+also installing the dependencies ‘xts’, ‘TTR’, ‘quadprog’, ‘quantmod’, ‘fracdiff’, ‘tseries’, ‘urca’
+
+trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/xts_0.12.2.tgz'
+Content type 'application/x-gzip' length 865694 bytes (845 KB)
+==================================================
+downloaded 845 KB
+
+trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/TTR_0.24.3.tgz'
+Content type 'application/x-gzip' length 532416 bytes (519 KB)
+==================================================
+downloaded 519 KB
+
+trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/quadprog_1.5-8.tgz'
+Content type 'application/x-gzip' length 39944 bytes (39 KB)
+==================================================
+downloaded 39 KB
+
+trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/quantmod_0.4.20.tgz'
+Content type 'application/x-gzip' length 1032902 bytes (1008 KB)
+==================================================
+downloaded 1008 KB
+
+trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/fracdiff_1.5-2.tgz'
+Content type 'application/x-gzip' length 126161 bytes (123 KB)
+==================================================
+downloaded 123 KB
+
+trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/tseries_0.10-52.tgz'
+Content type 'application/x-gzip' length 415393 bytes (405 KB)
+==================================================
+downloaded 405 KB
+
+trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/urca_1.3-3.tgz'
+Content type 'application/x-gzip' length 1096447 bytes (1.0 MB)
+==================================================
+downloaded 1.0 MB
+
+trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.2/forecast_8.20.tgz'
+Content type 'application/x-gzip' length 2555001 bytes (2.4 MB)
+==================================================
+downloaded 2.4 MB
+
+
+The downloaded binary packages are in
+	/var/folders/44/fwb3c1ld77xc2v_jqkl9mg000000gn/T//RtmpnD448I/downloaded_packages
+> library(forecast)
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+This is forecast 8.20 
+  Use suppressPackageStartupMessages() to eliminate package startup messages.
+> 
+> df <- read.csv("path/to/dataframe.csv") # change to the path of your dataframe
+Error in file(file, "rt") : 
+  (converted from warning) cannot open file 'path/to/dataframe.csv': No such file or directory
+> library(forecast)
+> 
+> 
+> df$age <- as.numeric(df$age)
+Error: (converted from warning) Unknown or uninitialised column: `age`.
+> library(forecast)
+> 
+> 
+> # set the age column as the time series index
+> df$Age <- as.numeric(df$age)
+Error: (converted from warning) Unknown or uninitialised column: `age`.
+> library(forecast)
+> 
+> 
+> # set the age column as the time series index
+> df$Age <- as.numeric(df$Age)
+> tsdata <- ts(df[, -1], start = min(df$Age), end = max(df$Age), frequency = 1)
+Error in ts(df[, -1], start = min(df$Age), end = max(df$Age), frequency = 1) : 
+  'end' must be a whole number of cycles after 'start'
+> library(xts)
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+> g <- ggplot(Plasma_Clean_8_clusters_avg, aes(Age, Cluster 1)) + geom_smooth()
+Error: unexpected numeric constant in "g <- ggplot(Plasma_Clean_8_clusters_avg, aes(Age, Cluster 1"
+> g <- ggplot(Plasma_Clean_8_clusters_avg, aes(Age, Plasma_Clean_8_clusters_avg$`Cluster 1`)) + geom_smooth()
+> g
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `` Plasma_Clean_8_clusters_avg$`Cluster 1` `` is discouraged.
+ℹ Use `Cluster 1` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> g <- ggplot(Plasma_Clean_8_clusters_avg, aes(Age, Plasma_Clean_8_clusters_avg$`Cluster 1`)) + geom_smooth()
+> 
+> g
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `` Plasma_Clean_8_clusters_avg$`Cluster 1` `` is discouraged.
+ℹ Use `Cluster 1` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> rlang::last_error()
+<error/rlang_error>
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `` Plasma_Clean_8_clusters_avg$`Cluster 1` `` is discouraged.
+ℹ Use `Cluster 1` instead.
+---
+Backtrace:
+  1. base (local) `<fn>`(x)
+  2. ggplot2:::print.ggplot(x)
+  4. ggplot2:::ggplot_build.ggplot(x)
+  5. ggplot2:::by_layer(...)
+ 12. ggplot2 (local) f(l = layers[[i]], d = data[[i]])
+ 13. l$compute_aesthetics(d, plot)
+ 14. ggplot2 (local) compute_aesthetics(..., self = self)
+ 15. ggplot2:::warn_for_aes_extract_usage(...)
+ 16. base::lapply(...)
+ 17. ggplot2 (local) FUN(X[[i]], ...)
+ 18. ggplot2:::warn_for_aes_extract_usage_expr(...)
+ 19. cli::cli_warn(...)
+ 20. rlang::warn(format_warning(message, .envir = .envir), ...)
+ 21. base::warning(cnd)
+Run `rlang::last_trace()` to see the full context.
+> > g <- ggplot(Plasma_Clean_8_clusters_avg, aes(Age, Plasma_Clean_8_clusters_avg$`Cluster 1`)) + geom_point()+ geom_smooth()
+Error: unexpected '>' in ">"
+> g <- ggplot(Plasma_Clean_8_clusters_avg, aes(Age, Plasma_Clean_8_clusters_avg$`Cluster 1`)) + geom_point()+ geom_smooth()
+> g
+Error in `geom_point()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `` Plasma_Clean_8_clusters_avg$`Cluster 1` `` is discouraged.
+ℹ Use `Cluster 1` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> g <- ggplot(Plasma_Clean_8_clusters_avg) + geom_smooth(Age, Plasma_Clean_8_clusters_avg$`Cluster 1`)
+Error in layer(data = data, mapping = mapping, stat = stat, geom = GeomSmooth,  : 
+  object 'Age' not found
+> g <- ggplot(Plasma_Clean_8_clusters_avg) + geom_smooth(Plasma_Clean_8_clusters_avg$Age, Plasma_Clean_8_clusters_avg$`Cluster 1`)
+Error in `geom_smooth()`:
+! `mapping` must be created by `aes()`
+Run `rlang::last_error()` to see where the error occurred.
+> g <- ggplot(Plasma_Clean_8_clusters_avg) + geom_smooth(aes(Plasma_Clean_8_clusters_avg$Age, Plasma_Clean_8_clusters_avg$`Cluster 1`))
+> g
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `Plasma_Clean_8_clusters_avg$Age` is discouraged.
+ℹ Use `Age` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> ggplot(Plasma_Clean_8_clusters_avg, aes(x= Age, y=Plasma_Clean_8_clusters_avg$`Cluster 1`)) + geom_point()
+Error in `geom_point()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `` Plasma_Clean_8_clusters_avg$`Cluster 1` `` is discouraged.
+ℹ Use `Cluster 1` instead.
+Run `rlang::last_error()` to see where the error occurred.
+>  ggplot(Plasma_Clean_8_clusters_avg, aes(x=Plasma_Clean_8_clusters_avg$Age , y=Plasma_Clean_8_clusters_avg$`Cluster 1`)) + geom_point()
+Error in `geom_point()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `Plasma_Clean_8_clusters_avg$Age` is discouraged.
+ℹ Use `Age` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> ggplot() + geom_smooth(data =Plasma_Clean_8_clusters_avg, aes(x=Age, y=Plasma_Clean_8_clusters_avg$`Cluster 1`))
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `` Plasma_Clean_8_clusters_avg$`Cluster 1` `` is discouraged.
+ℹ Use `Cluster 1` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> library(ggplot2)
+> 
+> # Assume that the dataframe is called 'df'
+> 
+> # Get the number of columns in the dataframe
+> ncols <- ncol(Plasma_Clean_8_clusters_avg)
+> 
+> # Create a new dataframe with only the columns of interest
+> df_subset <- df[,7:ncols]
+> 
+> # Use melt to reshape the dataframe
+> df_melt <- melt(df_subset)
+No id variables; using all as measure variables
+> 
+> # Use ggplot to create the scatter plot with a smooth line
+> ggplot(data = df_melt, aes(x = variable, y = value)) +
++     geom_point() +
++     geom_smooth(method = "lm", se = FALSE)
+`geom_smooth()` using formula = 'y ~ x'
+> 
+> library(ggplot2)
+> 
+> # Assume that the dataframe is named 'df'
+> 
+> # Subset the dataframe to include only the relevant columns
+> df_subset <- Plasma_Clean_8_clusters_avg[,c(7:ncol(Plasma_Clean_8_clusters_avg))]
+> 
+> # Create a variable 'age' that corresponds to the first column
+> df_subset$age <- df[,1]
+> 
+> # Create a list of variables to use in the plot
+> variables <- names(df_subset)[-1]
+> 
+> # Initialize the plot
+> p <- ggplot(df_subset, aes(x = age))
+> 
+> # Use a for loop to add geom_smooth() for each variable
+> for(i in variables) {
++     p <- p + geom_smooth(aes(y = df_subset[[i]]), method = "loess", se = FALSE)
++ }
+> 
+> # Add a title and labels
+> p <- p + ggtitle("LOESS Trajectories of Variables with Respect to Age") + xlab("Age") + ylab("Value")
+> 
+> # Display the plot
+> print(p)
+Don't know how to automatically pick scale for object of type <tbl_df/tbl/data.frame>. Defaulting to
+continuous.
+Don't know how to automatically pick scale for object of type <tbl_df/tbl/data.frame>. Defaulting to
+continuous.
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `df_subset[[i]]` is discouraged.
+ℹ Use `.data[[i]]` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> library(ggplot2)
+> 
+> # Assume the dataframe is called "df"
+> 
+> # Create a variable to store the number of columns in the dataframe
+> num_cols <- ncol(Plasma_Clean_8_clusters_avg)
+> 
+> # Create a loop to iterate through all columns starting from column 2
+> for(i in 2:num_cols) {
++     # Use geom_smooth() to plot the LOESS trajectory for each column with respect to the first column (age)
++     ggplot(Plasma_Clean_8_clusters_avg, aes(x = Plasma_Clean_8_clusters_avg[,1], y = Plasma_Clean_8_clusters_avg[,i])) + 
++         geom_smooth(method = "loess") +
++         ggtitle(colnames(Plasma_Clean_8_clusters_avg)[i]) +
++         theme_classic() +
++         theme(legend.position = "none") +
++         ylab("Value") +
++         xlab("Age")
++ }
+> 
+> print(i)
+[1] 9
+> library(ggplot2)
+> 
+> df <- Plasma_Clean_8_clusters_avg
+> # Assume the dataframe is called "df"
+> 
+> # Create a variable to store the number of columns in the dataframe
+> num_cols <- ncol(df)
+> 
+> # Create a loop to iterate through all columns starting from column 2
+> for(i in 2:num_cols) {
++     # Use geom_smooth() to plot the LOESS trajectory for each column with respect to the first column (age)
++     print(ggplot(df, aes(x = df[,1], y = df[,i])) + 
++               geom_smooth(method = "loess") +
++               ggtitle(colnames(df)[i]) +
++               theme_classic() +
++               theme(legend.position = "none") +
++               ylab("Value") +
++               xlab("Age"))
++ }
+Don't know how to automatically pick scale for object of type <tbl_df/tbl/data.frame>. Defaulting to
+continuous.
+Don't know how to automatically pick scale for object of type <tbl_df/tbl/data.frame>. Defaulting to
+continuous.
+Error in `data[[var]][scale_index[[i]]]`:
+! Can't subset columns past the end.
+ℹ Locations 2, 3, 4, …, 59, and 60 don't exist.
+ℹ There is only 1 column.
+Run `rlang::last_error()` to see where the error occurred.
+> library(ggplot2)
+> 
+> # Assume the dataframe is called "df"
+> 
+> # Create a variable to store the number of columns in the dataframe
+> num_cols <- ncol(df)
+> 
+> # Create a loop to iterate through all columns starting from column 2
+> for(i in 2:num_cols) {
++     # Use geom_smooth() to plot the LOESS trajectory for each column with respect to the first column (age)
++     print(ggplot(df, aes(x = df[,1], y = df[,i])) + 
++               geom_smooth(method = "loess") +
++               ggtitle(colnames(df)[i]) +
++               theme_classic() +
++               theme(legend.position = "none") +
++               ylab("Value") +
++               xlab("Age"))
++ }
+Don't know how to automatically pick scale for object of type <tbl_df/tbl/data.frame>. Defaulting to
+continuous.
+Don't know how to automatically pick scale for object of type <tbl_df/tbl/data.frame>. Defaulting to
+continuous.
+Error in `data[[var]][scale_index[[i]]]`:
+! Can't subset columns past the end.
+ℹ Locations 2, 3, 4, …, 59, and 60 don't exist.
+ℹ There is only 1 column.
+Run `rlang::last_error()` to see where the error occurred.
+> View(df)
+> df <- as.numeric(df)
+Error: 'list' object cannot be coerced to type 'double'
+> df[] <- sapply(df, as.numeric)
+> 
+> library(ggplot2)
+> 
+> # Assume the dataframe is called "df"
+> 
+> # Create a variable to store the number of columns in the dataframe
+> num_cols <- ncol(df)
+> 
+> # Create a loop to iterate through all columns starting from column 2
+> for(i in 2:num_cols) {
++     # Use geom_smooth() to plot the LOESS trajectory for each column with respect to the first column (age)
++     print(ggplot(df, aes(x = df[,1], y = df[,i])) + 
++               geom_smooth(method = "loess") +
++               ggtitle(colnames(df)[i]) +
++               theme_classic() +
++               theme(legend.position = "none") +
++               ylab("Value") +
++               xlab("Age"))
++ }
+Don't know how to automatically pick scale for object of type <tbl_df/tbl/data.frame>. Defaulting to
+continuous.
+Don't know how to automatically pick scale for object of type <tbl_df/tbl/data.frame>. Defaulting to
+continuous.
+Error in `data[[var]][scale_index[[i]]]`:
+! Can't subset columns past the end.
+ℹ Locations 2, 3, 4, …, 59, and 60 don't exist.
+ℹ There is only 1 column.
+Run `rlang::last_error()` to see where the error occurred.
+> ggplot(df, aes(Age, df$`Cluster 1`)) + geom_smooth()
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `` df$`Cluster 1` `` is discouraged.
+ℹ Use `Cluster 1` instead.
+Run `rlang::last_error()` to see where the error occurred.
+>  ggplot(df, aes(df$Age, df$`Cluster 1`)) + geom_smooth()
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `df$Age` is discouraged.
+ℹ Use `Age` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> ggplot(df, aes(Age, df$`Cluster 1`)) + geom_smooth()
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `` df$`Cluster 1` `` is discouraged.
+ℹ Use `Cluster 1` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> ggplot(df, aes(Age, df$`Cluster 1`)) + geom_smooth(method = loess())
+Error in terms.formula(formula, data = data) : 
+  argument is not a valid model
+> ggplot(df, aes(x=Age, y=Cluster.1)) + geom_smooth()
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `FUN()`:
+! object 'Cluster.1' not found
+Run `rlang::last_error()` to see where the error occurred.
+> g<- ggplot(df)
+> g<- g+ geom_smooth(mapping = aes(df$Age, df$`Cluster 1`))
+> g
+Error in `geom_smooth()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Use of `df$Age` is discouraged.
+ℹ Use `Age` instead.
+Run `rlang::last_error()` to see where the error occurred.
+> library(readxl)
+> Final_CSF_sqo_del_40 <- read_excel("~/Documents/Final CSF-sqo del 40.xlsx")
+> View(Final_CSF_sqo_del_40)                                                                         
+> df <- Final_CSF_sqo_del_40[,-1:-3]
+> df <- df[,-2:-3]
+> df <- df[,-1]
+> sdf <- scale(df, center = TRUE, scale = TRUE)
+> View(sdf)
+> write.csv(sdf, file = "zscore final csf.csv")
+> library(readr)
+> zscore_final_csf <- read_csv("zscore final csf.csv")
+Rows: 94 Columns: 537                                                                                
+── Column specification ───────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (537): Age, A2M (hu), A2M (X), ACAN (hu), ACAN (X), ACE, ACVR2A, ADAM17, ADAM22, ADIPOQ (hu), A...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> View(zscore_final_csf)
+> sdfM <- melt((zscore_final_csf, id.vars="Age" ))
+Error: unexpected ',' in "sdfM <- melt((zscore_final_csf,"
+> sdfM <- melt(zscore_final_csf, id.vars="Age")
+> ggplot(sdfM, aes(Age,value, col=variable)) + 
++        stat_smooth(se= FALSE) + theme_minimal()
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+Error in `stat_smooth()`:
+! Problem while computing stat.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! (converted from warning) Removed 18203 rows containing non-finite values (`stat_smooth()`).
+Run `rlang::last_error()` to see where the error occurred.
+> View(sdfM)
+> sdfMO <- na.omit(sdfM)
+> View(sdfMO)
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE) + theme_minimal()
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE) + theme_minimal() + legend.position="none"
+Error in ggplot(sdfMO, aes(Age, value, col = variable)) + stat_smooth(se = FALSE) +  : 
+  could not find function "+<-"
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++         stat_smooth(se= FALSE) + theme_minimal() + legend.position="none"
+Error in ggplot(sdfMO, aes(Age, value, col = variable)) + stat_smooth(se = FALSE) +  : 
+  could not find function "+<-"
+> ggplot(sdfMO, aes(Age,value, col=variable)) + stat_smooth(se= FALSE) + theme_minimal() + legend.position="none"
+Error in ggplot(sdfMO, aes(Age, value, col = variable)) + stat_smooth(se = FALSE) +  : 
+  could not find function "+<-"
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE) + theme_minimal(legend.position="none")
+Error in theme_minimal(legend.position = "none") : 
+  unused argument (legend.position = "none")
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++       stat_smooth(se= FALSE) + theme_minimal() + theme(legend.position = "none")
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE, color="black") + theme_minimal() + theme(legend.position = "none")
+`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'
+> gplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE, aes(color="black")) + theme_minimal() + theme(legend.position = "none")
+Error in gplot(sdfMO, aes(Age, value, col = variable)) : 
+  could not find function "gplot"
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE, aes(color="black")) + theme_minimal() + theme(legend.position = "none")
+`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE, aes(colour="black")) + theme_minimal() + theme(legend.position = "none")
+`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE)) + theme_minimal() + theme(legend.position = "none") + scale_color_manual("black")
+Error: unexpected ')' in:
+"ggplot(sdfMO, aes(Age,value, col=variable)) + 
+    stat_smooth(se= FALSE))"
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++ stat_smooth(se= FALSE) + theme_minimal() + theme(legend.position = "none") + scale_color_manual("black")
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+Error in `palette()`:
+! Insufficient values in manual scale. 536 needed but only 0 provided.
+Run `rlang::last_error()` to see where the error occurred.
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++    stat_smooth(se= FALSE) + theme_minimal() + theme(legend.position = "none") + scale_color_manual(c("black"))
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+Error in `palette()`:
+! Insufficient values in manual scale. 536 needed but only 0 provided.
+Run `rlang::last_error()` to see where the error occurred.
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE) + theme_minimal() + theme(legend.position = "none") + labs(y="z-score")
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+> ggplot(sdfMO, aes(Age,value, col=variable)) + 
++     stat_smooth(se= FALSE) + theme_minimal() + theme(legend.position = "none") + labs(y="z-score") + theme_bw()
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+> library(readxl)
+> CV_VERVET_PLASMA_RBM_ALL_DATA3_TZ <- read_excel("~/Documents/CV VERVET PLASMA RBM-ALL DATA3_TZ.xlsx", 
++     sheet = "Sheet2")
+> View(CV_VERVET_PLASMA_RBM_ALL_DATA3_TZ)                                                            
+> dfp <- CV_VERVET_PLASMA_RBM_ALL_DATA3_TZ[,-1:-8]
